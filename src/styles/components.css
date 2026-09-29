@@ -1,0 +1,63 @@
+/* ------------------------------------------------------------------ *
+ * UI primitives — reveal plumbing, magnetic wrapper, WebGL stage wrapper
+ * ------------------------------------------------------------------ */
+
+/* Magnetic wrapper */
+.magnetic {
+  display: inline-flex;
+  will-change: transform;
+}
+
+/* Elements hidden until the reveal engine runs */
+html.js-ready [data-reveal-group] > * {
+  opacity: 0;
+}
+
+html.reduced-motion [data-reveal-group] > * {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Hint beside the pinned rail's progress bar */
+.drag-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.drag-hint i {
+  display: block;
+  width: 26px;
+  height: 1px;
+  background: var(--line-strong);
+}
+
+/* WebGL canvas wrapper (distinct from .stage cards in the patent section) */
+.gl-stage {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.4s var(--ease-out-expo);
+}
+
+.gl-stage.is-ready {
+  opacity: 1;
+}
+
+.gl-stage canvas {
+  width: 100% !important;
+  height: 100% !important;
+  outline: none;
+}
+
+/* Word-by-word emphasis used inside masked headlines */
+.em-word {
+  color: var(--ember-2);
+  font-style: italic;
+  font-variation-settings: 'SOFT' 40, 'WONK' 1;
+}

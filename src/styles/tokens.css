@@ -1,0 +1,59 @@
+/* ------------------------------------------------------------------ *
+ * Design tokens — "Obsidian & Bone"
+ * A warm-neutral near-black canvas, bone-white type set in a variable
+ * high-contrast serif, and exactly one high-chroma accent (ember).
+ * ------------------------------------------------------------------ */
+
+@theme {
+  --color-ink-0: #060608;
+  --color-ink-1: #0a0a0d;
+  --color-ink-2: #101014;
+  --color-ink-3: #17171d;
+  --color-bone: #f1ede5;
+  --color-bone-2: #c4bfb5;
+  --color-mute: #8c8880;
+  --color-faint: #5d5a55;
+  --color-ember: #ff4a1f;
+  --color-ember-2: #ff8a5c;
+  --color-mint: #5fe3c4;
+
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Fraunces Variable', 'Iowan Old Style', ui-serif, Georgia, serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+}
+
+:root {
+  --ink-0: #060608;
+  --ink-1: #0a0a0d;
+  --ink-2: #101014;
+  --ink-3: #17171d;
+  --bone: #f1ede5;
+  --bone-2: #c4bfb5;
+  --mute: #8c8880;
+  --faint: #5d5a55;
+  --ember: #ff4a1f;
+  --ember-2: #ff8a5c;
+  --mint: #5fe3c4;
+
+  --line: rgba(241, 237, 229, 0.09);
+  --line-strong: rgba(241, 237, 229, 0.18);
+  --line-soft: rgba(241, 237, 229, 0.05);
+
+  --shell-max: 1560px;
+  --gutter: clamp(1.25rem, 4.2vw, 5rem);
+
+  /* vertical rhythm */
+  --sec-pad: clamp(6rem, 14vh, 11.5rem);
+
+  /* motion */
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
+  --dur-fast: 0.28s;
+  --dur: 0.55s;
+  --dur-slow: 0.9s;
+
+  --z-nav: 60;
+  --z-rail: 55;
+  --z-cursor: 90;
+  --z-preloader: 100;
+}
