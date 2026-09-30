@@ -15,7 +15,7 @@ export const profile = {
   name: 'Sushanth Reddy',
   legalName: 'Peddireddy Sushanth Reddy',
   monogram: 'PSR',
-  discipline: 'AI / ML Engineer',
+  discipline: 'AI/ML & Software Engineer',
   location: 'Hyderabad, India',
   timezone: 'Asia/Kolkata',
   email: 'sushanthreddyp2005@gmail.com',
@@ -24,15 +24,15 @@ export const profile = {
   github: 'https://github.com/Sushanth18052005',
   linkedin: 'https://www.linkedin.com/in/sushanth-reddy-peddireddy-656816253/',
   resumeUrl: '/Sushanth_Reddy_Resume.pdf',
-  status: { label: 'Open to full-time AI/ML roles', note: 'Class of 2026' },
+  status: { label: 'Open to AI/ML & software roles', note: 'Class of 2026' },
 } as const
 
 export const hero = {
-  eyebrow: 'Computer vision · Applied generative AI · Hyderabad, IN',
+  eyebrow: 'AI/ML engineering · Full-stack software · Hyderabad, IN',
   titleLines: ['Sushanth', 'Reddy'],
   statement: 'I build machine learning systems that turn medical scans and video into decisions a human can trust.',
   standfirst:
-    'Final-year B.Tech in Computer Science (AI & ML) at KMIT. Co-inventor of an Indian patent in AI-driven breast cancer diagnostics. Currently engineering model evaluation and agent workflows at Centific.',
+    'Final-year B.Tech in CS (AI & ML) at KMIT and co-inventor of an Indian patent. I build the models and the full-stack software around them — PyTorch and transformers on one side, React, Node, Flask, Docker and AWS on the other. Currently doing model engineering at Centific.',
   rail: 'Scroll',
 } as const
 
@@ -103,9 +103,9 @@ export const focusAreas = [
   },
   {
     index: '04',
-    title: 'Spatial interfaces',
-    body: 'Interactive 3D and VR visualisation in Unreal Engine and on the web, so that model output can be inspected spatially rather than guessed at.',
-    tags: ['Unreal Engine', 'WebGL', '3D/VR'],
+    title: 'Software engineering',
+    body: 'The full-stack systems the models live in — React and Node front ends, Flask and Express APIs, MongoDB, containerised with Docker and shipped on AWS — on top of solid DSA and OS fundamentals. Plus spatial 3D/VR interfaces in Unreal Engine when output needs to be inspected, not guessed at.',
+    tags: ['Full-stack', 'APIs', 'Docker · AWS'],
   },
 ] as const
 
@@ -295,6 +295,10 @@ export const toolkit = {
       items: ['Python', 'Java', 'C++', 'C', 'JavaScript', 'SQL'],
     },
     {
+      title: 'Computer science',
+      items: ['Data Structures & Algorithms', 'Operating Systems', 'Databases', 'OOP', 'Cloud Computing'],
+    },
+    {
       title: 'Platform & Delivery',
       items: ['React.js', 'Node.js', 'Express', 'Flask', 'Docker', 'AWS', 'Unreal Engine', 'Git', 'GitHub'],
     },
@@ -354,7 +358,7 @@ export const contact = {
   index: '07',
   label: 'Contact',
   heading: ['Let us build something', 'worth patenting.'],
-  body: 'I am finishing my degree in 2026 and looking for an AI/ML team that ships. If you are working on models that have to survive the real world, I would like to hear about it.',
+  body: 'I am finishing my degree in 2026 and looking for a team that ships — AI/ML or core software engineering. If you are building products that have to survive the real world, I would like to hear about it.',
 } as const
 
 export const navLinks = [

@@ -13,7 +13,7 @@ export function Toolkit() {
   return (
     <section className="sec sec--edge" id="toolkit">
       <div className="shell">
-        <SectionHead index={toolkit.index} label={toolkit.label} aside="6 groups" />
+        <SectionHead index={toolkit.index} label={toolkit.label} aside={`${toolkit.groups.length} groups`} />
 
         <div className="toolkit__grid">
           <div>

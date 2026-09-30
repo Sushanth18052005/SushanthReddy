@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Let AI/search crawlers read everything — this is a public portfolio.
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://sushanthreddy.dev/sitemap.xml

@@ -22,12 +22,16 @@ export function Cursor() {
 
     document.documentElement.classList.add('has-custom-cursor')
 
-    const dotX = gsap.quickTo(wrapEl, 'x', { duration: 0.14, ease: 'power2.out' })
-    const dotY = gsap.quickTo(wrapEl, 'y', { duration: 0.14, ease: 'power2.out' })
-    const ringX = gsap.quickTo(ringEl, 'x', { duration: 0.55, ease: 'power3.out' })
-    const ringY = gsap.quickTo(ringEl, 'y', { duration: 0.55, ease: 'power3.out' })
-    const labelX = gsap.quickTo(labelEl, 'x', { duration: 0.5, ease: 'power3.out' })
-    const labelY = gsap.quickTo(labelEl, 'y', { duration: 0.5, ease: 'power3.out' })
+    // The wrap stays put; each layer is positioned independently. The dot
+    // tracks the pointer with zero smoothing so it never lags behind the hidden
+    // OS cursor — only the ring and label trail for the sense of weight.
+    const setDotX = gsap.quickSetter(dotEl, 'x', 'px') as (value: number) => void
+    const setDotY = gsap.quickSetter(dotEl, 'y', 'px') as (value: number) => void
+    const ringX = gsap.quickTo(ringEl, 'x', { duration: 0.5, ease: 'power3.out' })
+    const ringY = gsap.quickTo(ringEl, 'y', { duration: 0.5, ease: 'power3.out' })
+    gsap.set(labelEl, { xPercent: -50, yPercent: -50 })
+    const labelX = gsap.quickTo(labelEl, 'x', { duration: 0.45, ease: 'power3.out' })
+    const labelY = gsap.quickTo(labelEl, 'y', { duration: 0.45, ease: 'power3.out' })
 
     let currentState = ''
 
@@ -40,8 +44,8 @@ export function Cursor() {
 
     const onMove = (event: PointerEvent) => {
       const { clientX, clientY } = event
-      dotX(clientX)
-      dotY(clientY)
+      setDotX(clientX)
+      setDotY(clientY)
       ringX(clientX)
       ringY(clientY)
       labelX(clientX)

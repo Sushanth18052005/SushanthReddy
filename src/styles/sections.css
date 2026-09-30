@@ -318,9 +318,13 @@
   flex-direction: column;
   gap: 0.85rem;
   align-items: flex-end;
-  /* A scrim keeps any hovered label from colliding with body copy. */
   padding-left: 3rem;
-  background: linear-gradient(to right, transparent, rgba(6, 6, 8, 0.92) 42%);
+  background: transparent;
+  transition: background 0.4s linear;
+}
+
+.rail:hover {
+  background: linear-gradient(to right, transparent, rgba(6, 6, 8, 0.88) 42%);
 }
 
 .rail__item a {
