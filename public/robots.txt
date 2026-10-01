@@ -8,4 +8,4 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://sushanthreddy.dev/sitemap.xml
+Sitemap: https://sushanth-reddy.vercel.app/sitemap.xml
