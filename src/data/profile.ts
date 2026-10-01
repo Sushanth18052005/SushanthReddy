@@ -2,7 +2,7 @@
  * Single source of truth for every piece of copy on the site.
  *
  * Provenance, in order of weight:
- *  1. Resume — "Sushanth_Reddy_Test (1).pdf" (authoritative for roles, dates, metrics).
+ *  1. Resume — "Sushanth_Reddy_Test (2).pdf" (authoritative for roles, dates, metrics).
  *  2. GitHub  — github.com/Sushanth18052005 (project repositories).
  *  3. Patent  — Indian Patent Application 202541059395 A.
  *  4. LinkedIn — linkedin.com/in/sushanth-reddy-peddireddy-656816253 (identity + profile links).
