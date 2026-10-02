@@ -9,6 +9,7 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
+    "og": "node tools/og/render-og.mjs",
     "audit": "node tools/visual-qa/audit.mjs"
   },
   "dependencies": {

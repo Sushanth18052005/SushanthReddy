@@ -4,19 +4,10 @@
  * high-contrast serif, and exactly one high-chroma accent (ember).
  * ------------------------------------------------------------------ */
 
+/* Tailwind reads only the fonts from @theme. Colors live in :root as the
+ * single source of truth — no color utilities (text-ember, bg-ink…) are used
+ * anywhere in the app, so a duplicate @theme color palette would be dead. */
 @theme {
-  --color-ink-0: #060608;
-  --color-ink-1: #0a0a0d;
-  --color-ink-2: #101014;
-  --color-ink-3: #17171d;
-  --color-bone: #f1ede5;
-  --color-bone-2: #c4bfb5;
-  --color-mute: #8c8880;
-  --color-faint: #5d5a55;
-  --color-ember: #ff4a1f;
-  --color-ember-2: #ff8a5c;
-  --color-mint: #5fe3c4;
-
   --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-display: 'Fraunces Variable', 'Iowan Old Style', ui-serif, Georgia, serif;
   --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SFMono-Regular', Menlo, monospace;
@@ -30,7 +21,9 @@
   --bone: #f1ede5;
   --bone-2: #c4bfb5;
   --mute: #8c8880;
-  --faint: #5d5a55;
+  /* bumped from #5d5a55 (~2.95:1) → ~4.9:1 on --ink-0, clears WCAG AA for
+   * normal text while staying a step below --mute to preserve hierarchy */
+  --faint: #827e72;
   --ember: #ff4a1f;
   --ember-2: #ff8a5c;
   --mint: #5fe3c4;

@@ -1,7 +1,7 @@
 import { Canvas } from '@react-three/fiber'
 import { createContext, useCallback, useContext, useRef, type ReactNode } from 'react'
 
-import { usePrefersReducedMotion } from '../lib/hooks'
+import { useMediaQuery, usePrefersReducedMotion } from '../lib/hooks'
 
 /** True when the visitor asked for reduced motion — scenes render a still frame. */
 const StillContext = createContext(false)
@@ -26,6 +26,10 @@ export function Stage({
   onReady?: () => void
 }) {
   const reduced = usePrefersReducedMotion()
+  // Touch devices run several of these canvases at once (hero + project
+  // stages). Trim the pixel-ratio ceiling and drop MSAA there to cut GPU
+  // cost and memory; desktop keeps the full-quality path unchanged.
+  const coarse = useMediaQuery('(pointer: coarse)')
   const host = useRef<HTMLDivElement | null>(null)
 
   const handleCreated = useCallback(() => {
@@ -39,10 +43,10 @@ export function Stage({
     <div ref={host} className={['gl-stage', className].filter(Boolean).join(' ')}>
       <Canvas
         flat
-        dpr={[1, 1.7]}
+        dpr={coarse ? [1, 1.3] : [1, 1.7]}
         camera={{ position: cameraPosition, fov }}
         frameloop={frameloop}
-        gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
+        gl={{ antialias: !coarse, alpha: true, powerPreference: 'high-performance' }}
         onCreated={handleCreated}
       >
         <StillContext.Provider value={reduced}>{children}</StillContext.Provider>

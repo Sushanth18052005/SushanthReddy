@@ -3,6 +3,7 @@ import { useEffect, useMemo, useRef, type RefObject } from 'react'
 import * as THREE from 'three'
 
 import { hash } from '../../lib/rand'
+import { dustCloud, pointsGeometry } from '../geometry'
 import { useStill } from '../Stage'
 
 const PATH_INDICES = [0, 9, 13, 22, 26]
@@ -76,39 +77,14 @@ export function VideoRagScene({ progress }: { progress: RefObject<number> }) {
   const { nodePositions, edgePositions, pathPositions, pathNodes } = useMemo(buildGraph, [])
   const frames = useMemo(buildRibbon, [])
 
-  const nodeGeometry = useMemo(() => {
-    const geometry = new THREE.BufferGeometry()
-    geometry.setAttribute('position', new THREE.BufferAttribute(nodePositions, 3))
-    return geometry
-  }, [nodePositions])
+  const nodeGeometry = useMemo(() => pointsGeometry(nodePositions), [nodePositions])
+  const edgeGeometry = useMemo(() => pointsGeometry(edgePositions), [edgePositions])
+  const pathGeometry = useMemo(() => pointsGeometry(pathPositions), [pathPositions])
 
-  const edgeGeometry = useMemo(() => {
-    const geometry = new THREE.BufferGeometry()
-    geometry.setAttribute('position', new THREE.BufferAttribute(edgePositions, 3))
-    return geometry
-  }, [edgePositions])
-
-  const pathGeometry = useMemo(() => {
-    const geometry = new THREE.BufferGeometry()
-    geometry.setAttribute('position', new THREE.BufferAttribute(pathPositions, 3))
-    return geometry
-  }, [pathPositions])
-
-  const dustGeometry = useMemo(() => {
-    const count = 260
-    const positions = new Float32Array(count * 3)
-    for (let i = 0; i < count; i += 1) {
-      const radius = 1.1 + hash(i * 1.31) * 1.3
-      const theta = hash(i * 2.71) * Math.PI * 2
-      const phi = Math.acos(2 * hash(i * 3.93) - 1)
-      positions[i * 3] = Math.sin(phi) * Math.cos(theta) * radius
-      positions[i * 3 + 1] = Math.cos(phi) * radius * 0.7
-      positions[i * 3 + 2] = Math.sin(phi) * Math.sin(theta) * radius
-    }
-    const geometry = new THREE.BufferGeometry()
-    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
-    return geometry
-  }, [])
+  const dustGeometry = useMemo(
+    () => dustCloud(260, { radiusBase: 1.1, radiusSpread: 1.3, yScale: 0.7, seeds: [1.31, 2.71, 3.93] }),
+    [],
+  )
 
   useEffect(
     () => () => {

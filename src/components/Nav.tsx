@@ -74,7 +74,13 @@ export function Nav({ activeId }: { activeId: string }) {
             <a className="btn btn--solid nav__cta" href={profile.resumeUrl} download>
               Résumé
             </a>
-            <button className="nav__toggle" type="button" onClick={() => setOpen((value) => !value)} aria-expanded={open}>
+            <button
+              className="nav__toggle"
+              type="button"
+              onClick={() => setOpen((value) => !value)}
+              aria-expanded={open}
+              aria-controls="site-menu"
+            >
               {open ? 'Close' : 'Index'}
             </button>
           </div>
@@ -85,7 +91,7 @@ export function Nav({ activeId }: { activeId: string }) {
         </div>
       </header>
 
-      <div className={['menu', open ? 'is-open' : ''].filter(Boolean).join(' ')} aria-hidden={!open}>
+      <div id="site-menu" className={['menu', open ? 'is-open' : ''].filter(Boolean).join(' ')} aria-hidden={!open}>
         <nav className="menu__list" aria-label="All sections">
           {navLinks.map((link) => (
             <a key={link.id} className="menu__link" href={`#${link.id}`} onClick={(event) => go(event, link.id)} tabIndex={open ? 0 : -1}>

@@ -32,5 +32,5 @@
   <!-- footer strip -->
   <line x1="80" y1="540" x2="1120" y2="540" stroke="#f1ede5" stroke-opacity="0.09" stroke-width="1"/>
   <text x="80" y="580" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18" letter-spacing="1" fill="#8c8880">Co-inventor · Indian Patent 202541059395 A</text>
-  <text x="1120" y="580" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18" letter-spacing="1" fill="#5fe3c4" text-anchor="end">sushanthreddy.dev</text>
+  <text x="1120" y="580" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18" letter-spacing="1" fill="#5fe3c4" text-anchor="end">sushanth-reddy.vercel.app</text>
 </svg>

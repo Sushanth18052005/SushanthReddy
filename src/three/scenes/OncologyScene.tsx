@@ -2,7 +2,7 @@ import { useFrame } from '@react-three/fiber'
 import { useEffect, useMemo, useRef, type RefObject } from 'react'
 import * as THREE from 'three'
 
-import { hash } from '../../lib/rand'
+import { dustCloud } from '../geometry'
 import { NOISE_3D } from '../glsl'
 import { useStill } from '../Stage'
 
@@ -67,21 +67,10 @@ export function OncologyScene({ progress }: { progress: RefObject<number> }) {
   const geometry = useMemo(() => new THREE.IcosahedronGeometry(0.78, 4), [])
   const cageGeometry = useMemo(() => new THREE.IcosahedronGeometry(0.92, 1), [])
 
-  const dustGeometry = useMemo(() => {
-    const count = 320
-    const positions = new Float32Array(count * 3)
-    for (let i = 0; i < count; i += 1) {
-      const radius = 1.25 + hash(i * 1.77) * 1.35
-      const theta = hash(i * 2.31) * Math.PI * 2
-      const phi = Math.acos(2 * hash(i * 4.19) - 1)
-      positions[i * 3] = Math.sin(phi) * Math.cos(theta) * radius
-      positions[i * 3 + 1] = Math.cos(phi) * radius * 0.66
-      positions[i * 3 + 2] = Math.sin(phi) * Math.sin(theta) * radius
-    }
-    const geo = new THREE.BufferGeometry()
-    geo.setAttribute('position', new THREE.BufferAttribute(positions, 3))
-    return geo
-  }, [])
+  const dustGeometry = useMemo(
+    () => dustCloud(320, { radiusBase: 1.25, radiusSpread: 1.35, yScale: 0.66, seeds: [1.77, 2.31, 4.19] }),
+    [],
+  )
 
   const uniforms = useMemo(
     () => ({
